@@ -1,0 +1,8 @@
+cd "$(dirname "$0")/.."
+
+rm -rf build/*
+zip -r build/upload.zip config.py lambda_function.py
+cd dependencies
+zip -r ../build/upload.zip *
+cd ..
+aws lambda update-function-code --function-name GitHub-HomeAssistant --zip-file fileb://./build/upload.zip

@@ -1,0 +1,5 @@
+cd "$(dirname "$0")/.."
+
+mkdir build
+mkdir dependencies
+python -m pip install github3.py -t dependencies

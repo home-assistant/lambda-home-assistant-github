@@ -1,0 +1,10 @@
+dependencies
+config.py
+*.pyc
+pip-selfcheck.json
+
+.Python
+bin
+build
+include
+lib
