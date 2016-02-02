@@ -36,7 +36,7 @@ def lambda_handler(event, context, debug=False):
         return
 
     pr_id = message['number']
-    # author = message['pull_request']['user']['login']
+    author = message['pull_request']['user']['login']
 
     target_repo_owner = message['pull_request']['base']['repo']['owner']['login']
     target_repo = message['pull_request']['base']['repo']['name']
@@ -49,6 +49,10 @@ def lambda_handler(event, context, debug=False):
 
     if target_branch != config.branch:
         print('PR is targetting {} branch, aborting'.format(target_branch))
+        return
+
+    if author in config.ignore_login:
+        print('Ignoring pull requests from {}'.format(author))
         return
 
     if debug:

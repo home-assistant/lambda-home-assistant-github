@@ -8,6 +8,8 @@ repo_owner = 'balloob'
 repo = 'home-assistant'
 branch = 'dev'
 
+ignore_login = ['balloob']
+
 message = """
 Thanks for submitting a PR!
 """
